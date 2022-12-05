@@ -38,10 +38,12 @@ export async function pollCreation(req,res){
     }
 
     try {
-        await usersCollection.insertOne({poll});
+        await pollsCollection.insertOne({poll});
         res.send(poll);
     } catch (err) {
         console.log(err);
     res.sendStatus(500);
     }
+
+
 }

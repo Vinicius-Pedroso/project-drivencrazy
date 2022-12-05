@@ -13,3 +13,5 @@ try {
 
 const db = mongoClient.db("drivencrazy")
 export const pollsCollection = db.collection("polls");
+export const choicesCollection = db.collection("polls");
+
