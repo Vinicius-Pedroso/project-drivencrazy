@@ -20,8 +20,8 @@ export async function getVotes (req, res){
 	        }
         }
         res.send(result);
-      } catch (err) {
+    } catch (err) {
         console.log(err);
         res.sendStatus(500);
-      }
+    }
 }

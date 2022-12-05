@@ -1,4 +1,4 @@
-import { pollsCollection } from "../db.js";
+import { pollsCollection, choicesCollection } from "../db.js";
 import { choiceValidationSchema } from "./choiceSchema.js";
 
 export async function choiceValidation(req, res, next){
@@ -21,7 +21,7 @@ export async function choiceValidation(req, res, next){
     }
 
     try {
-        const choicePoll = await choiceCollection.findOne({ title });
+        const choicePoll = await choicesCollection.findOne({ title });
         if (!choicePoll) {
             res.sendStatus(409)
         }} catch (err) {
@@ -36,9 +36,9 @@ export async function createChoice (req,res){
     const {title, pollId} = req.body;
 
     try {
-        const choicePoll = await choiceCollection.findOne({ pollId });
+        const choicePoll = await choicesCollection.findOne({ pollId });
         if (!choicePoll) {
-            await choiceCollection.addOne(pollId)
+            await choicesCollection.addOne(pollId)
         }} catch (err) {
             console.log(err);
         res.sendStatus(500);
@@ -58,4 +58,13 @@ export async function createChoice (req,res){
     }
     
 }
+
+
+
+
+
+
+
+
+
 
