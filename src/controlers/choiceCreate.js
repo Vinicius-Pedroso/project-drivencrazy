@@ -50,7 +50,7 @@ export async function createChoice (req,res){
     }
 
     try {
-        await choicesCollection.findOne({pollId}).insertOne({choice});
+        await choicesCollection.findOne({pollId}).push({choice});
         res.sendStatus(201);
     } catch (err) {
         console.log(err);
