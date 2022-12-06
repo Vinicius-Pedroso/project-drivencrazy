@@ -1,5 +1,5 @@
 import { pollsCollection, choicesCollection } from "../db.js";
-import { choiceValidationSchema } from "./choiceSchema.js";
+import { choiceValidationSchema } from "../middlewere/choiceSchema.js";
 
 export async function choiceValidation(req, res, next){
     const {title, pollId} = req.body;
@@ -50,8 +50,8 @@ export async function createChoice (req,res){
     }
 
     try {
-        const choiceReturn = await choicesCollection.findOne({pollId}).insertOne({choice});
-        res.send(choiceReturn);
+        await choicesCollection.findOne({pollId}).insertOne({choice});
+        res.sendStatus(201);
     } catch (err) {
         console.log(err);
     res.sendStatus(500);

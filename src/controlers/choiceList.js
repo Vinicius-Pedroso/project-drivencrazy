@@ -1,4 +1,4 @@
-import { choicesCollection } from "../db";
+import { choicesCollection } from "../db.js";
 
 export async function findChoices(req, res) {
     const id = req.params.id;

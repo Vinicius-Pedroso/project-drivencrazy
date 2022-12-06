@@ -1,5 +1,5 @@
 import joi from 'joi'
 
 export const pollValidationSchema = joi.object({
-    title: joi.object().required().string()
+    title: joi.string().required()
 })

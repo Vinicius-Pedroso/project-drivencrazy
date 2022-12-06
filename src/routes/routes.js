@@ -6,7 +6,7 @@ import { pollCreation, pollSchemaValidation } from '../controlers/pollCreate.js'
 import { createVote } from '../controlers/voteCreate.js';
 import { getVotes } from '../controlers/voteGet.js';
 
-const router = express.Router();
+const router = Router();
 
 router.post("/poll", pollSchemaValidation, pollCreation )
 router.get("/poll", findpolls);
@@ -16,4 +16,43 @@ router.post("/choice/:id/vote", createVote)
 router.get("/poll/:id/result", getVotes)
 
 export default router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

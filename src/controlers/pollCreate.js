@@ -1,4 +1,4 @@
-import { pollValidationSchema } from "./pollSchema.js";
+import { pollValidationSchema } from "../middlewere/pollSchema.js";
 import { pollsCollection } from "../db.js";
 import dayjs from 'dayjs'
 
@@ -39,7 +39,7 @@ export async function pollCreation(req,res){
 
     try {
         await pollsCollection.insertOne({poll});
-        res.send(poll);
+        res.sendStatus(201);
     } catch (err) {
         console.log(err);
     res.sendStatus(500);
